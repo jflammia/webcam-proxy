@@ -1,0 +1,27 @@
+{
+  "name": "webcam-proxy",
+  "version": "0.0.1",
+  "description": "A simple node app to proxy an MJPEG from a mjpg-streamer server",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jflammia/webcam-proxy.git"
+  },
+  "keywords": [
+    "camera",
+    "proxy",
+    "mjpeg",
+    "mjpg-streamer"
+  ],
+  "author": "Justin Flammia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jflammia/webcam-proxy/issues"
+  },
+  "homepage": "https://github.com/jflammia/webcam-proxy#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mjpeg-proxy": "^0.2.0",
+    "path": "^0.12.7"
+  }
+}

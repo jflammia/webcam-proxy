@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>webcam-proxy example</title>
+  <script type="text/javascript">
+    function getTimestamp() {
+      var d = new Date(),
+        minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+        hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+        seconds = d.getSeconds().toString().length == 1 ? '0'+d.getSeconds() : d.getSeconds(),
+        months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+':'+seconds;
+    }
+    window.onload = function() {
+      document.getElementById("timestamp").innerHTML = getTimestamp();
+    };
+
+    window.setInterval(function() {
+      document.getElementById('snapshot').src = "/camera/snapshot?random="+new Date().getTime();
+      document.getElementById("timestamp").innerHTML = getTimestamp();
+    }, 5000);
+  </script>
+</head>
+<body>
+  <center>
+    <h1>webcam-proxy example</h1>
+    <table>
+      <thead>
+        <th>Live</th>
+        <th>Snapshot</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img id="live" src="/camera" width="640" height="480"/>
+          </td>
+          <td>
+            <img id="snapshot" src="/camera/snapshot" width="640" height="480"/>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td align="right">Last Updated: <span id="timestamp"></span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </center>
+</body>
+<footer>
+  <hr />
+  <span><small><i>Check out the source on <a href="https://github.com/jflammia/webcam-proxy">Github</a>.</i></small></span>
+</footer>
+</html>
